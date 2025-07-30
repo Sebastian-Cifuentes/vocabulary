@@ -3,6 +3,8 @@ import { LoginPage, RegisterPage } from "../auth";
 import { AuthStatus } from "../enum/AuthStatus.enum";
 import { useAuthStore } from "../hooks";
 import { useEffect } from 'react';
+import { MainLayout } from '../layouts';
+import { ProfilePage, WordsList } from "../pages";
 
 
 export const AppRouter = () => {
@@ -26,7 +28,7 @@ export const AppRouter = () => {
 
         {
             // (status === AuthStatus.notauthenticated)
-            (true)
+            (false)
             ? (
                 <>
                     <Route path="/auth/login" element={<LoginPage />}></Route>
@@ -36,7 +38,10 @@ export const AppRouter = () => {
             )
             : (
                 <>
-                    {/* <Route path="/" element={<CalendarPage />}></Route> */}
+                    <Route path="/" element={<MainLayout />}>
+                        <Route index element={<WordsList />}></Route>
+                        <Route path="/profile" element={<ProfilePage />}></Route>
+                    </Route>
                     <Route path="/*" element={<Navigate to="/" />}></Route>
                 </>
             )
