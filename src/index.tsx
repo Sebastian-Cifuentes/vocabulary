@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { Vocabulary } from './Vocabulary';
 import reportWebVitals from './reportWebVitals';
+import './tailwind.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  //<React.StrictMode>
+    <Vocabulary />
+  //</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
