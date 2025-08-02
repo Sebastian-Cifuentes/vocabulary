@@ -1,0 +1,18 @@
+.sidebar {
+    background-color: var(--primary);
+}
+
+.sidebar > .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar > .menu > p {
+    color: var(--third);
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.sidebar > .menu > .active {
+    color: var(--gray);
+}
