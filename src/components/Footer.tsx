@@ -1,7 +1,9 @@
 export const Footer = () => {
 
+    const currentYear = new Date().getFullYear();
+
     return (
-        <p>Footer</p>
+        <small className="text-center text-gray-500 mb-1">©{currentYear}</small>
     );
 
 }
