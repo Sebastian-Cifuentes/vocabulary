@@ -9,7 +9,7 @@ export const WordsList = () => {
             <div className="flex justify-between">
                 <Title title='Words list' />
                 <PrimaryButton
-                    clickFunction={() => openPopup({title: 'Add a new word to learn', content: '', size: 'large'})}
+                    clickFunction={() => openPopup({title: 'Add a new word to learn', content: '', size: 'small'})}
                     name='Add word' />
             </div>
             <div className="body mt-5">
