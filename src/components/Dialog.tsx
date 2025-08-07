@@ -16,7 +16,7 @@ export const Dialog = () => {
         <>
             <div className="fixed inset-0 bg-black/75 flex items-start justify-center z-50 pt-32">
                 <div className={`bg-white p-6 rounded shadow-lg ${popupSize[size]} relative`}>
-                    {title && <h2 className="text-xl font-semibold mb-4">{title}</h2>}
+                    {title && <h2 className="text-xl font-semibold mb-1">{title}</h2>}
                     <div>{content}</div>
                     <button
                         onClick={() => closePopup()}

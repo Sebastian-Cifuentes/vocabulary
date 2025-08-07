@@ -1,3 +1,4 @@
+export { Input } from "./form/Input";
 export { Dialog } from "./Dialog";
 export { Title } from "./Title";
 export { Avatar } from "./Avatar";
