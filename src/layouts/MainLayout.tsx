@@ -8,7 +8,7 @@ export const MainLayout = () => {
       <Sidebar />
       <div className="flex flex-col justify-between flex-1">
         <Header />
-        <main className="p-4 overflow-auto">
+        <main className="p-4 overflow-auto h-full">
           <Outlet />
         </main>
         <Footer />

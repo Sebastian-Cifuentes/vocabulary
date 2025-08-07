@@ -1,0 +1,1 @@
+export type { PopupState } from './PopupStore.interface';
