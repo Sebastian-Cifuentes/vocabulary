@@ -11,7 +11,8 @@ export const WordsList = () => {
                 <Title title='Words list' />
                 <PrimaryButton
                     clickFunction={() => openPopup({title: 'Add a new word to learn', content: <AddWord />, size: 'small'})}
-                    name='Add word' />
+                    label='Add word'
+                    type='button'/>
             </div>
             <div className="body mt-5">
                 <p>No words added</p>
