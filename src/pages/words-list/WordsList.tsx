@@ -1,9 +1,11 @@
 import { Title, PrimaryButton, Dialog } from '../../components';
 import { usePopupStore } from '../../hooks';
 import { AddWord } from './AddWord';
+import { WordsAdded } from './WordsAdded';
 export const WordsList = () => {
 
     const { openPopup } = usePopupStore();
+    const words = ['bring'];
 
     return (
         <>
@@ -14,9 +16,13 @@ export const WordsList = () => {
                     label='Add word'
                     type='button'/>
             </div>
-            <div className="body mt-5">
+            {words.length === 0 
+            ? (<div className="body mt-5">
                 <p>No words added</p>
-            </div>
+              </div>)
+            : (<WordsAdded />)
+            }
+            
             <Dialog />
         </>
     );
