@@ -1,3 +1,4 @@
+export { HoverButton } from "./HoverButton";
 export { Input } from "./form/Input";
 export { Dialog } from "./Dialog";
 export { Title } from "./Title";

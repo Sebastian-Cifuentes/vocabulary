@@ -4,7 +4,7 @@ import { AuthStatus } from "../enum/AuthStatus.enum";
 import { useAuthStore } from "../hooks";
 import { useEffect } from 'react';
 import { MainLayout } from '../layouts';
-import { ProfilePage, WordsList } from "../pages";
+import { ProfilePage, ProgressWord, WordsList } from "../pages";
 
 
 export const AppRouter = () => {
@@ -41,6 +41,7 @@ export const AppRouter = () => {
                     <Route path="/" element={<MainLayout />}>
                         <Route index element={<WordsList />}></Route>
                         <Route path="/profile" element={<ProfilePage />}></Route>
+                        <Route path="/progress-word/:id" element={<ProgressWord />}></Route>
                     </Route>
                     <Route path="/*" element={<Navigate to="/" />}></Route>
                 </>

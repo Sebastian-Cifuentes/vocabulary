@@ -14,5 +14,21 @@ export const MainLayout = () => {
         <Footer />
       </div>
     </div>
+      //   <div className="container-layout">
+      //   <div className="header">
+      //     <Header />
+      //   </div>
+      //   <div className="sidebar">
+      //     <Sidebar />
+      //   </div>
+      //   <div className="content">
+      //     <main className="pt-20 px-20 overflow-auto h-full">
+      //       <Outlet />
+      //     </main>
+      //   </div>
+      //   <div className="footer">
+      //     <Footer />
+      //   </div>
+      // </div>
   )
 }
