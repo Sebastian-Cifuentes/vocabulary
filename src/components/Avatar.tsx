@@ -1,7 +1,4 @@
-import './../assets/components/Header.css';
-
 export const Avatar = () => {
-
     return (
         <>
             <div className="flex -space-x-2">

@@ -1,0 +1,10 @@
+.main-progress > .progress > .percentage {
+    width: 150px;
+    margin: 0 auto;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px solid;
+    border-radius: 100%;
+}

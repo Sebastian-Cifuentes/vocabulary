@@ -6,7 +6,7 @@ export const Sidebar = () => {
 
     return (
         <>
-            <div className="sidebar flex flex-col">
+            <div className="sidebar flex flex-col bg-blue-200">
 
                 <Logo />
 

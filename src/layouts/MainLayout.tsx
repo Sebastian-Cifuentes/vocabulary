@@ -8,10 +8,12 @@ export const MainLayout = () => {
       <Sidebar />
       <div className="flex flex-col justify-between flex-1">
         <Header />
-        <main className="p-4 overflow-auto h-full">
+        <main className="p-4 overflow-auto h-full bg-gray-100">
           <Outlet />
         </main>
-        <Footer />
+        <footer className='bg-gray-100 text-center'>
+          <Footer />
+        </footer>
       </div>
     </div>
       //   <div className="container-layout">
