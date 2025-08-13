@@ -14,28 +14,28 @@ export const Sidebar = () => {
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
-                        isActive ? 'text-blue-500 font-semibold' : 'text-gray-500'
+                        isActive ? 'text-blue-500 font-semibold' : 'text-gray-500 font-semibold'
                         }
                     >
                         Words list
                     </NavLink>
                     <NavLink to={{pathname: '/profile'}}
                         className={({ isActive }) =>
-                            isActive ? 'text-blue-500 font-semibold' : 'text-gray-500'
+                            isActive ? 'text-blue-500 font-semibold' : 'text-gray-500 font-semibold'
                             }
                     >
                         Profile
                     </NavLink>
                     <NavLink to={{pathname: '/profile'}}
                         className={({ isActive }) =>
-                            isActive ? 'text-blue-500 font-semibold' : 'text-gray-500'
+                            isActive ? 'text-blue-500 font-semibold' : 'text-gray-500 font-semibold'
                             }
                     >
                         My categories
                     </NavLink>
                     <NavLink to={{pathname: '/profile'}}
                         className={({ isActive }) =>
-                            isActive ? 'text-blue-500 font-semibold' : 'text-gray-500'
+                            isActive ? 'text-blue-500 font-semibold' : 'text-gray-500 font-semibold'
                             }
                     >
                         New words
