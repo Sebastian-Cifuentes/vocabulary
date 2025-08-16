@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Title } from '../../components/Title';
 import { HoverButton } from '../../components';
 import './../../assets/components/ProgressWord.css'
+import { ChatPracticing } from './ChatPracticing';
 
 export const ProgressWord = () => {
     
@@ -22,10 +23,7 @@ export const ProgressWord = () => {
                     <p>How many exercise to improve have been - 40</p>
                 </div>
                 <div className="exercises w-4/6 mt-4 ml-4 p-5 bg-white rounded-lg">
-                    <HoverButton clickFunction={() => console.log('testing...')} label='Practice with a conversation' />
-                    <HoverButton clickFunction={() => console.log('testing...')} label='Practice with a call' />
-                    <HoverButton clickFunction={() => console.log('testing...')} label='View on practical phrases' />
-                    <HoverButton clickFunction={() => console.log('testing...')} label='Definition' />
+                    <ChatPracticing />
                 </div>
             </div>
         </>
