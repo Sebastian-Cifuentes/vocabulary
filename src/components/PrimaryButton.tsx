@@ -10,7 +10,7 @@ export const PrimaryButton = ({label, clickFunction, type}: ButtonProps) => {
             <button
                 onClick={clickFunction}
                 type={type}
-                className="rounded-xl bg-blue-500 hover:bg-blue-600 px-10 text-white font-semibold">
+                className="rounded-xl bg-blue-500 hover:bg-blue-600 px-10 py-1 text-white font-semibold">
                 {label}
             </button>
         </>
