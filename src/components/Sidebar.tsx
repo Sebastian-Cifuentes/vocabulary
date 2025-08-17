@@ -26,14 +26,14 @@ export const Sidebar = () => {
                     >
                         Profile
                     </NavLink>
-                    <NavLink to={{pathname: '/profile'}}
+                    <NavLink to={{pathname: '/categories'}}
                         className={({ isActive }) =>
                             isActive ? 'text-blue-500 font-semibold' : 'text-gray-500 font-semibold'
                             }
                     >
                         My categories
                     </NavLink>
-                    <NavLink to={{pathname: '/profile'}}
+                    <NavLink to={{pathname: '/new-words'}}
                         className={({ isActive }) =>
                             isActive ? 'text-blue-500 font-semibold' : 'text-gray-500 font-semibold'
                             }

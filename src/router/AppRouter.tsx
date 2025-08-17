@@ -1,10 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { LoginPage, RegisterPage } from "../auth";
-import { AuthStatus } from "../enum/AuthStatus.enum";
-import { useAuthStore } from "../hooks";
-import { useEffect } from 'react';
 import { MainLayout } from '../layouts';
-import { ProfilePage, ProgressWord, WordsList } from "../pages";
+import { MyCategories, NewWords, ProfilePage, ProgressWord, WordsList } from "../pages";
 
 
 export const AppRouter = () => {
@@ -42,6 +39,8 @@ export const AppRouter = () => {
                         <Route index element={<WordsList />}></Route>
                         <Route path="/profile" element={<ProfilePage />}></Route>
                         <Route path="/progress-word/:id" element={<ProgressWord />}></Route>
+                        <Route path="/categories" element={<MyCategories />}></Route>
+                        <Route path="/new-words" element={<NewWords />}></Route>
                     </Route>
                     <Route path="/*" element={<Navigate to="/" />}></Route>
                 </>
