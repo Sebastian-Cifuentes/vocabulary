@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom"
 import { LoginPage, RegisterPage } from "../auth";
-import { MainLayout } from '../layouts';
+import { MainLayout, AuthLayout } from '../layouts';
 import { MyCategories, NewWords, ProfilePage, ProgressWord, WordsList } from "../pages";
 
 
@@ -25,12 +25,14 @@ export const AppRouter = () => {
 
         {
             // (status === AuthStatus.notauthenticated)
-            (false)
+            (true)
             ? (
                 <>
-                    <Route path="/auth/login" element={<LoginPage />}></Route>
-                    <Route path="/auth/register" element={<RegisterPage />}></Route>
-                    <Route path="/*" element={<Navigate to="/auth/login" />}></Route>
+                    <Route path="/auth" element={<AuthLayout />}>
+                        <Route index path="/auth" element={<LoginPage />}></Route>
+                        <Route path="/auth/register" element={<RegisterPage />}></Route>
+                    </Route>
+                    <Route path="/*" element={<Navigate to="/auth" />}></Route>
                 </>
             )
             : (
