@@ -1,10 +1,19 @@
 import { KeyRound, User } from "lucide-react";
+import { PrimaryButton, Title } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
+
+    const navigate = useNavigate();
+
+    const navigateToRegister = () => {
+      navigate("/auth/register"); // redirects to /dashboard
+    };
 
     return (
         <>
             <div className="login p-8 bg-white rounded-xl">
+                <Title title="Sing in" className="mb-3" />
                 <div className="relative w-full mb-5">
                     <label htmlFor="user">Username or email</label>
                     <input
@@ -23,7 +32,9 @@ export const LoginPage = () => {
                         id="user"/>
                     <KeyRound className="w-7 h-7 absolute right-3 top-11 -translate-y-1/2 p-1" />
                 </div>
-
+                <PrimaryButton className="mt-4" label="Sign in" clickFunction={() => console.log('signing in')} type="submit" />
+                <br />
+                <a onClick={navigateToRegister} className="cursor-pointer">Sign me up</a>
             </div>
         </>
     );
