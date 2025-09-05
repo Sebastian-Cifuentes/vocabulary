@@ -25,7 +25,7 @@ export const AppRouter = () => {
 
         {
             // (status === AuthStatus.notauthenticated)
-            (false)
+            (true)
             ? (
                 <>
                     <Route path="/auth" element={<AuthLayout />}>
