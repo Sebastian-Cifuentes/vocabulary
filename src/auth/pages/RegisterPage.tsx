@@ -4,8 +4,11 @@ import { PrimaryButton } from '../../components/PrimaryButton';
 import { useNavigate } from "react-router-dom";
 import { Input } from "../../components";
 import { useForm } from "react-hook-form";
+import { useAuthStore } from "../../hooks";
 
 export const RegisterPage = () => {
+
+    const { startCreate } = useAuthStore();
 
     const navigate = useNavigate();
 
@@ -13,6 +16,10 @@ export const RegisterPage = () => {
 
     const navigateToLogin = () => {
       navigate("/auth"); // redirects to /dashboard
+    };
+
+    const create = (data: any) => {
+        startCreate(data);
     };
 
     return (
@@ -69,7 +76,7 @@ export const RegisterPage = () => {
                 </div>
                 <div className="relative w-full">
                     <Input
-                        type='text'
+                        type='password'
                         className="border bg-gray-100 rounded-2xl px-3 py-2 w-full outline-none"
                         placeholder='Password' 
                         label='Password' 
@@ -83,7 +90,7 @@ export const RegisterPage = () => {
                     />
                     <KeyRound className="w-7 h-7 absolute right-3 top-11 -translate-y-1/2 p-1" />
                 </div>
-                <PrimaryButton className="mt-4" label="Sign up" clickFunction={() => console.log('signing up')} type="submit" />
+                <PrimaryButton className="mt-4" label="Sign up" clickFunction={handleSubmit(create)} type="submit" />
                 <br />
                 <a onClick={navigateToLogin} className="cursor-pointer">Sign me in</a>
             </div>

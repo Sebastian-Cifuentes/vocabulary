@@ -1,8 +1,11 @@
 import { Logo } from './Logo';
 import './../assets/components/Sidebar.css'
 import { NavLink } from 'react-router-dom';
+import { useAuthStore } from '../hooks';
 
 export const Sidebar = () => {
+
+    const { startLogout } = useAuthStore();
 
     return (
         <>
@@ -39,6 +42,9 @@ export const Sidebar = () => {
                             }
                     >
                         New words
+                    </NavLink>
+                    <NavLink onClick={startLogout} to={{pathname: '/auth'}} className={'text-gray-500 font-semibold'}>
+                        Log out
                     </NavLink>
                 </nav>
 

@@ -3,15 +3,21 @@ import { PrimaryButton, Title } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Input } from '../../components/form/Input';
+import { useAuthStore } from "../../hooks";
 
 export const LoginPage = () => {
 
     const navigate = useNavigate();
+    const { startLogin } = useAuthStore();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const navigateToRegister = () => {
-      navigate("/auth/register"); // redirects to /dashboard
+      navigate("/auth/register");
+    };
+
+    const login = (data: any) => {
+        startLogin(data);
     };
 
     return (
@@ -23,7 +29,6 @@ export const LoginPage = () => {
                         type='text'
                         className="border bg-gray-100 rounded-2xl px-3 py-2 w-full outline-none"
                         placeholder='Username or email' 
-                        label='Username or email' 
                         register={register}
                         rules={{
                             required: 'Username or email is required',
@@ -32,14 +37,13 @@ export const LoginPage = () => {
                         name='user'
                         errors={errors}
                     />
-                    <User className="w-7 h-7 absolute right-3 top-10 -translate-y-1/2 p-1" />
+                    <User className="w-7 h-7 absolute right-3 top-5 -translate-y-1/2 p-1" />
                 </div>
                 <div className="relative w-full">
                     <Input
                         type='password'
                         className="border bg-gray-100 rounded-2xl px-3 py-2 w-full outline-none"
                         placeholder='Password' 
-                        label='Password' 
                         register={register}
                         rules={{
                             required: 'Password is required',
@@ -48,9 +52,9 @@ export const LoginPage = () => {
                         name='password'
                         errors={errors}
                     />
-                    <KeyRound className="w-7 h-7 absolute right-3 top-10 -translate-y-1/2 p-1" />
+                    <KeyRound className="w-7 h-7 absolute right-3 top-5 -translate-y-1/2 p-1" />
                 </div>
-                <PrimaryButton className="mt-4" label="Sign in" clickFunction={() => console.log('signing in')} type="submit" />
+                <PrimaryButton className="mt-4" label="Sign in" clickFunction={handleSubmit(login)} type="submit" />
                 <br />
                 <a onClick={navigateToRegister} className="cursor-pointer">Sign me up</a>
             </div>
