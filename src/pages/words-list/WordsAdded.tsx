@@ -20,9 +20,9 @@ export const WordsAdded = () => {
             <p className="text-lg">Select a word to start practice:</p>
             <div className="grid grid-cols-4 gap-4 mt-4">
                 {words.map(word => 
-                <div>
-                    <HoverButton key={word} clickFunction={() => navigateTo(1)} label={word} />
-                </div>
+                    <div key={word}>
+                        <HoverButton key={word} clickFunction={() => navigateTo(1)} label={word} />
+                    </div>
                 )}
             </div>
         </>
