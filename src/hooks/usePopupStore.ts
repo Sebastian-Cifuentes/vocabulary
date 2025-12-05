@@ -4,11 +4,11 @@ import { onClosePopup, onOpenPopup } from "../store";
 import { PopupState } from '../interfaces';
 
 export const usePopupStore = () => {
-    const { content, isOpen, title, size } = useSelector((state: RootState) => state.popup);
+    const { type, props, isOpen, title, size } = useSelector((state: RootState) => state.popup);
     const dispatch = useDispatch();
 
-    const openPopup = ({title, content, size}: PopupState) => {
-        dispatch(onOpenPopup({title, content, size}));
+    const openPopup = ({title, type, props, size}: PopupState) => {
+        dispatch(onOpenPopup({title, type, props, size}));
     };
 
     const closePopup = () => {
@@ -17,7 +17,8 @@ export const usePopupStore = () => {
 
     return {
         isOpen,
-        content,
+        type,
+        props,
         title,
         size,
         openPopup,

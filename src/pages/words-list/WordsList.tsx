@@ -1,6 +1,5 @@
 import { Title, PrimaryButton, Dialog } from '../../components';
 import { usePopupStore } from '../../hooks';
-import { AddWord } from './AddWord';
 import { WordsAdded } from './WordsAdded';
 export const WordsList = () => {
 
@@ -12,7 +11,7 @@ export const WordsList = () => {
             <div className="flex justify-between">
                 <Title title='Words list' />
                 <PrimaryButton
-                    clickFunction={() => openPopup({title: 'Add a new word to learn', content: <AddWord />, size: 'small'})}
+                    clickFunction={() => openPopup({title: 'Add a new word to learn', type: 'add-word', size: 'small'})}
                     label='Add word'
                     type='button'/>
             </div>

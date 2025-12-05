@@ -3,7 +3,8 @@ import { PopupState } from "../../interfaces";
 
 const initialState: PopupState = {
     isOpen: false,
-    content: null,
+    type: '',
+    props: null,
     title: '',
     size: 'medium'
 }
@@ -15,13 +16,15 @@ export const popupSlice = createSlice({
         onOpenPopup: (state, {payload}: PayloadAction<PopupState>) => {
             state.isOpen = true;
             state.title = payload.title;
-            state.content = payload.content;
+            state.type = payload.type;
+            state.props = payload.props;
             state.size = payload.size;
         },
         onClosePopup: (state) => {
             state.isOpen = false;
             state.title = '';
-            state.content = null;
+            state.type = '';
+            state.props = null;
             state.size = 'medium';
         } 
     }

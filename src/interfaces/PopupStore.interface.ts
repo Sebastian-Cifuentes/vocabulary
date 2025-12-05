@@ -1,8 +1,7 @@
-import { ReactNode } from "react";
-
 export interface PopupState {
     isOpen?: boolean,
     title?: string,
-    content: ReactNode | null,
+    props?: any,
+    type: string,
     size: 'large' | 'medium' | 'small'
 };
