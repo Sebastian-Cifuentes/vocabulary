@@ -36,6 +36,9 @@ export const api = {
     
     post: <T>(url: string, data?: any, config?: AxiosRequestConfig) =>
         vocabularyApi.post<T>(url, data, config),
+
+    put: <T>(url: string, data?: any, config?: AxiosRequestConfig) =>
+        vocabularyApi.put<T>(url, data, config),
     
 };
 

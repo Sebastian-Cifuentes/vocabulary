@@ -4,7 +4,8 @@ import { authSlice, popupSlice } from ".";
 export const store = configureStore({
     reducer: {
         auth: authSlice.reducer,
-        popup: popupSlice.reducer
+        popup: popupSlice.reducer,
+        word: popupSlice.reducer,
     },
     // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     //     serializableCheck: false
