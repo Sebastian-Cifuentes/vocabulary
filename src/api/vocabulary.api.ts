@@ -39,6 +39,9 @@ export const api = {
 
     put: <T>(url: string, data?: any, config?: AxiosRequestConfig) =>
         vocabularyApi.put<T>(url, data, config),
+
+    delete: <T>(url: string) =>
+        vocabularyApi.delete<T>(url),
     
 };
 

@@ -6,7 +6,8 @@ const initialState: PopupState = {
     type: '',
     props: null,
     title: '',
-    size: 'medium'
+    size: 'medium',
+    error: ''
 }
 
 export const popupSlice = createSlice({
@@ -19,6 +20,7 @@ export const popupSlice = createSlice({
             state.type = payload.type;
             state.props = payload.props;
             state.size = payload.size;
+            state.error = payload.error;
         },
         onClosePopup: (state) => {
             state.isOpen = false;
@@ -26,8 +28,12 @@ export const popupSlice = createSlice({
             state.type = '';
             state.props = null;
             state.size = 'medium';
-        } 
+            state.error = '';
+        },
+        onSetPopupError: (state, { payload }) => {
+            state.error = payload.error;
+        }
     }
 });
 
-export const { onOpenPopup, onClosePopup } = popupSlice.actions;
+export const { onOpenPopup, onClosePopup, onSetPopupError } = popupSlice.actions;

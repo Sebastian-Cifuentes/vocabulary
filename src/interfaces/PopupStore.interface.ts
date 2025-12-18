@@ -3,5 +3,6 @@ export interface PopupState {
     title?: string,
     props?: any,
     type: string,
-    size: 'large' | 'medium' | 'small'
+    size: 'large' | 'medium' | 'small',
+    error?: string,
 };

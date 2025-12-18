@@ -10,22 +10,27 @@ export const wordSlice = createSlice({
     reducers: {
         onGetAllWords: (state, { payload }) => {
             state.words = payload;
+            state.loading = false;
             state.errorMessage = undefined;
         },
         onCreateWord: (state: any, {payload}) => {
-            state.words = [...state.words, payload]
+            state.words = [...state.words, payload];
+            state.loading = false;
             state.errorMessage = undefined;
         },
         onUpdateWord: (state: any, {payload}) => {
             state.words = state.words.map((word: any) => word.id === payload.id ? payload.word : word);
+            state.loading = false;
             state.errorMessage = undefined;
         },
-        onDeleteWord: (state) => {
-            state.words = [];
+        onDeleteWord: (state, { payload }) => {
+            state.words = state.words.filter((word: any) => word.id !== payload);
+            state.loading = false;
             state.errorMessage = undefined;
         },
         onSetErrorMessageWord: (state, { payload }) => {
             state.words = [];
+            state.loading = false;
             state.errorMessage = payload;
         },
         onLoadingWords: (state) => {

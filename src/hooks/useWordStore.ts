@@ -4,7 +4,7 @@ import { api } from "../api/vocabulary.api";
 
 export const useWordStore = () => {
 
-    const { words } = useSelector((state: any) => state.word);
+    const { words, errorMessage, loading } = useSelector((state: any) => state.word);
     const dispatch = useDispatch();
 
     const getAllUsers = async() => {
@@ -24,7 +24,7 @@ export const useWordStore = () => {
 
         try {
             const { data }: any = await api.post('/words', info);
-            if (data.message) throw new Error(data.message);
+            if (data.response?.message) throw new Error(data.message);
             dispatch(onCreateWord(data.word));
         } catch (error: any) {
             dispatch(onSetErrorMessageWord(error.message))
@@ -43,23 +43,20 @@ export const useWordStore = () => {
         }
     };
 
-    const deleteWord = async() => {
-        const token = localStorage.getItem('token');
-        if(!token) return dispatch(onLogout(''));
+    const deleteWord = async(id: number) => {
+        dispatch(onLoadingWords());
         try {
-            const { data }: any = await api.get('/users/renew');
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('token-init-date', new Date().getTime().toString());
-            dispatch(onLogin(data.user));
+            await api.delete('/users/renew');
+            dispatch(onDeleteWord(id));
         } catch (error: any) {
-            localStorage.removeItem('token');
-            const err = error.response.data.errormessage;
-            dispatch(onLogout(err || ''));
+            dispatch(onSetErrorMessageWord(error.message));
         }
     };
 
     return {
         words,
+        errorMessage,
+        loading,
         updateWord,
         deleteWord,
         getAllUsers,

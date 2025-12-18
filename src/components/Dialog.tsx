@@ -3,7 +3,7 @@ import { AddWord } from "../pages/words-list/AddWord";
 
 export const Dialog = () => {
 
-    const { closePopup, type, isOpen, title, size } = usePopupStore();
+    const { closePopup, type, isOpen, title, size, error } = usePopupStore();
 
     const popupSize = {
         'large': 'w-10/12',
@@ -17,7 +17,6 @@ export const Dialog = () => {
 
     const Content = content[type];
     
-
     if (!isOpen) return null;
 
     return (
@@ -25,6 +24,7 @@ export const Dialog = () => {
             <div className="fixed inset-0 bg-black/75 flex items-start justify-center z-50 pt-32">
                 <div className={`bg-white p-6 rounded shadow-lg ${popupSize[size]} relative`}>
                     {title && <h2 className="text-xl font-semibold mb-1">{title}</h2>}
+                    {error && <p className="error p-1 rounded" style={{ background: '#ff5151', color: 'white' }}>{ error }</p>}
                     <div><Content /></div>
                     <button
                         onClick={() => closePopup()}

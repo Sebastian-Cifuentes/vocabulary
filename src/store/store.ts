@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authSlice, popupSlice } from ".";
+import { authSlice, popupSlice, wordSlice } from ".";
 
 export const store = configureStore({
     reducer: {
         auth: authSlice.reducer,
         popup: popupSlice.reducer,
-        word: popupSlice.reducer,
+        word: wordSlice.reducer,
     },
     // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     //     serializableCheck: false
