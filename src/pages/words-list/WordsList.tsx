@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
 import { Title, PrimaryButton, Dialog } from '../../components';
 import { usePopupStore } from '../../hooks';
+import { useWordStore } from '../../hooks/useWordStore';
 import { WordsAdded } from './WordsAdded';
 export const WordsList = () => {
 
     const { openPopup } = usePopupStore();
-    const words = ['bring'];
+    const { loadAllWords, words, loading } = useWordStore();
+
+    useEffect(() => {
+        loadAllWords();
+    }, [loadAllWords]);
+
+    if (loading) return <p>Loading...</p>;
 
     return (
         <>

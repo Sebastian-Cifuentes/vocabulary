@@ -1,66 +1,46 @@
 import { useDispatch, useSelector } from "react-redux"
-import { onCreateWord, onDeleteWord, onGetAllWords, onUpdateWord, onSetErrorMessageWord, onLoadingWords } from "../store";
-import { api } from "../api/vocabulary.api";
+import { createWord, deleteWord, loadWords, updateWord } from "../store/word/word.thunk";
+import { AppDispatch, clearWordError, Word } from "../store";
+import { useCallback } from "react";
 
 export const useWordStore = () => {
 
     const { words, errorMessage, loading } = useSelector((state: any) => state.word);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
-    const getAllUsers = async() => {
-        dispatch(onLoadingWords());
+    const loadAllWords = useCallback(() => {
+        dispatch(loadWords());
+    }, [dispatch]);
+    
+    const create = useCallback(
+        (payload: { text: string }) => dispatch(createWord(payload)),
+        [dispatch]
+    );
 
-        try {
-            const { data }: any = await api.get('/words');
-            if (data.message) throw new Error(data.message);
-            dispatch(onGetAllWords(data.words));
-        } catch (error: any) {
-            dispatch(onSetErrorMessageWord(error.message))
-        }
-    }
+    const update = useCallback(
+        (word: Word) => dispatch(updateWord(word)),
+        [dispatch]
+    );
 
-    const createWord = async(info: any) => {
-        dispatch(onLoadingWords());
+    const remove = useCallback(
+        (id: string) => dispatch(deleteWord(id)),
+        [dispatch]
+    );
 
-        try {
-            const { data }: any = await api.post('/words', info);
-            if (data.response?.message) throw new Error(data.message);
-            dispatch(onCreateWord(data.word));
-        } catch (error: any) {
-            dispatch(onSetErrorMessageWord(error.message))
-        }
-    }
-
-    const updateWord = async(info: any, id: number) => {
-        dispatch(onLoadingWords());
-
-        try {
-            const { data }: any = await api.put(`/words/${id}`, info);
-            if (data.message) throw new Error(data.message);
-            dispatch(onUpdateWord({word: data.word, id}));
-        } catch (error: any) {
-            dispatch(onSetErrorMessageWord(error.message))
-        }
-    };
-
-    const deleteWord = async(id: number) => {
-        dispatch(onLoadingWords());
-        try {
-            await api.delete('/users/renew');
-            dispatch(onDeleteWord(id));
-        } catch (error: any) {
-            dispatch(onSetErrorMessageWord(error.message));
-        }
-    };
+    const clearError = useCallback(
+        () => dispatch(clearWordError()),
+        [dispatch]
+    );
 
     return {
         words,
         errorMessage,
         loading,
-        updateWord,
-        deleteWord,
-        getAllUsers,
-        createWord
+        loadAllWords,
+        create,
+        update,
+        remove,
+        clearError
     }
 
 }

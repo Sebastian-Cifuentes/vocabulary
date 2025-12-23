@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { PrimaryButton, Input } from '../../components';
 import { useWordStore } from '../../hooks/useWordStore';
 import { useGlobalErrorPopup } from '../../hooks/useGlobalErrorPopup';
+import { usePopupStore } from '../../hooks';
 
 export const AddWord = () => {
     // TODO: create a form component to handle and trigger events from the same input
@@ -10,11 +11,13 @@ export const AddWord = () => {
     // TODO: also, if is a select, create options for its list and o]=ptions to link with the form
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createWord, loading } = useWordStore();
+    const { create, loading } = useWordStore();
+    const { closePopup } = usePopupStore();
     useGlobalErrorPopup();
 
     const onSubmit = (data: any) => {
-        createWord(data);
+        create(data);
+        closePopup();
     };
 
     if (loading) return ( <>Loading...</> )
