@@ -13,7 +13,7 @@ export const useWordStore = () => {
     }, [dispatch]);
     
     const create = useCallback(
-        (payload: { text: string }) => dispatch(createWord(payload)),
+        (payload: { text: string }) => dispatch(createWord(payload)).unwrap(),
         [dispatch]
     );
 

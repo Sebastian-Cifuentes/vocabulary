@@ -13,12 +13,14 @@ export interface Word {
 
 interface WordState {
     words: Word[];
+    suggestions: string[];
     loading: boolean;
     errorMessage?: string;
 }
 
 const initialState: WordState = {
     words: [],
+    suggestions: [],
     loading: false,
     errorMessage: undefined,
 };
@@ -54,9 +56,10 @@ export const wordSlice = createSlice({
                 state.words.push(action.payload);
                 state.loading = false;
             })
-            .addCase(createWord.rejected, (state, action) => {
+            .addCase(createWord.rejected, (state, action: any) => {
                 state.loading = false;
-                state.errorMessage = action.payload;
+                state.errorMessage = action.payload.response.data.message;
+                state.suggestions = action.payload.suggestions;
             });
 
         builder

@@ -15,16 +15,17 @@ export const AddWord = () => {
     const { closePopup } = usePopupStore();
     useGlobalErrorPopup();
 
-    const onSubmit = (data: any) => {
-        create(data);
-        closePopup();
+    const onSubmit = async (data: any) => {
+        await create(data);
+        closePopup();  
     };
+
 
     if (loading) return ( <>Loading...</> )
 
     return (
         <>
-            <p className='mb-4'>This word will be added to your list to learn</p>
+            <p className='mt-4'>This word will be added to your list to learn</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input 
                     type='text' 
